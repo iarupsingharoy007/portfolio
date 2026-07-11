@@ -1,0 +1,86 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#15151a"/>
+      <stop offset="100%" stop-color="#0b0b0d"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4c8dff"/>
+      <stop offset="55%" stop-color="#9b6bff"/>
+      <stop offset="100%" stop-color="#ff8a4c"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="0%" r="75%">
+      <stop offset="0%" stop-color="#4c8dff" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#4c8dff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur1"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+
+  <rect width="640" height="400" fill="url(#bg)"/>
+  <circle cx="470" cy="30" r="160" fill="url(#glow)" filter="url(#blur1)"/>
+  <circle cx="90" cy="380" r="140" fill="#ff8a4c" opacity="0.08" filter="url(#blur1)"/>
+
+  <!-- terminal window -->
+  <g transform="translate(70,66)">
+    <rect x="0" y="0" width="500" height="268" rx="16" fill="#131316" stroke="rgba(255,255,255,0.08)"/>
+    <!-- title bar -->
+    <rect x="0" y="0" width="500" height="34" rx="16" fill="#1a1a1f"/>
+    <rect x="0" y="18" width="500" height="16" fill="#1a1a1f"/>
+    <circle cx="22" cy="17" r="5" fill="#ff5f57"/>
+    <circle cx="40" cy="17" r="5" fill="#febc2e"/>
+    <circle cx="58" cy="17" r="5" fill="#28c840"/>
+    <text x="250" y="21" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#6b6b72">health_report.html</text>
+
+    <!-- summary cards -->
+    <g font-family="JetBrains Mono, monospace">
+      <rect x="24" y="52" width="106" height="56" rx="10" fill="#1a1a1f" stroke="rgba(255,255,255,0.06)"/>
+      <text x="34" y="74" font-size="10" fill="#6b6b72">SERVERS</text>
+      <text x="34" y="96" font-size="20" fill="#f2f2f0" font-weight="600">12</text>
+
+      <rect x="140" y="52" width="106" height="56" rx="10" fill="#1a1a1f" stroke="rgba(255,255,255,0.06)"/>
+      <text x="150" y="74" font-size="10" fill="#6b6b72">HEALTHY</text>
+      <text x="150" y="96" font-size="20" fill="#3ddc84" font-weight="600">9</text>
+
+      <rect x="256" y="52" width="106" height="56" rx="10" fill="#1a1a1f" stroke="rgba(255,255,255,0.06)"/>
+      <text x="266" y="74" font-size="10" fill="#6b6b72">WARNING</text>
+      <text x="266" y="96" font-size="20" fill="#febc2e" font-weight="600">2</text>
+
+      <rect x="372" y="52" width="106" height="56" rx="10" fill="#1a1a1f" stroke="rgba(255,255,255,0.06)"/>
+      <text x="382" y="74" font-size="10" fill="#6b6b72">CRITICAL</text>
+      <text x="382" y="96" font-size="20" fill="#ff5f57" font-weight="600">1</text>
+    </g>
+
+    <!-- server rows -->
+    <g font-family="JetBrains Mono, monospace" font-size="11">
+      <rect x="24" y="124" width="454" height="30" rx="8" fill="#17171b"/>
+      <circle cx="40" cy="139" r="4" fill="#3ddc84"/>
+      <text x="54" y="143" fill="#d6d6d6">web-prod-01</text>
+      <text x="240" y="143" fill="#6b6b72">CPU 34%</text>
+      <text x="330" y="143" fill="#6b6b72">MEM 61%</text>
+      <text x="420" y="143" fill="#6b6b72">DISK 72%</text>
+
+      <rect x="24" y="160" width="454" height="30" rx="8" fill="#17171b"/>
+      <circle cx="40" cy="175" r="4" fill="#febc2e"/>
+      <text x="54" y="179" fill="#d6d6d6">db-prod-02</text>
+      <text x="240" y="179" fill="#6b6b72">CPU 81%</text>
+      <text x="330" y="179" fill="#6b6b72">MEM 77%</text>
+      <text x="420" y="179" fill="#6b6b72">DISK 84%</text>
+
+      <rect x="24" y="196" width="454" height="30" rx="8" fill="#17171b"/>
+      <circle cx="40" cy="211" r="4" fill="#3ddc84"/>
+      <text x="54" y="215" fill="#d6d6d6">app-prod-03</text>
+      <text x="240" y="215" fill="#6b6b72">CPU 22%</text>
+      <text x="330" y="215" fill="#6b6b72">MEM 45%</text>
+      <text x="420" y="215" fill="#6b6b72">DISK 58%</text>
+
+      <rect x="24" y="232" width="454" height="30" rx="8" fill="#17171b"/>
+      <circle cx="40" cy="247" r="4" fill="#ff5f57"/>
+      <text x="54" y="251" fill="#d6d6d6">cache-prod-04</text>
+      <text x="240" y="251" fill="#6b6b72">CPU 96%</text>
+      <text x="330" y="251" fill="#6b6b72">MEM 91%</text>
+      <text x="420" y="251" fill="#6b6b72">DISK 67%</text>
+    </g>
+  </g>
+
+  <rect x="0" y="396" width="640" height="4" fill="url(#accent)"/>
+</svg>

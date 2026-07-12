@@ -1,0 +1,79 @@
+<svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#15151a"/>
+      <stop offset="100%" stop-color="#0b0b0d"/>
+    </linearGradient>
+    <linearGradient id="accent2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4c8dff"/>
+      <stop offset="55%" stop-color="#9b6bff"/>
+      <stop offset="100%" stop-color="#ff8a4c"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4c8dff"/>
+      <stop offset="100%" stop-color="#9b6bff"/>
+    </linearGradient>
+    <radialGradient id="glow2" cx="10%" cy="0%" r="75%">
+      <stop offset="0%" stop-color="#9b6bff" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#9b6bff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur2"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+
+  <rect width="640" height="400" fill="url(#bg2)"/>
+  <circle cx="80" cy="20" r="150" fill="url(#glow2)" filter="url(#blur2)"/>
+  <circle cx="560" cy="380" r="130" fill="#ff8a4c" opacity="0.07" filter="url(#blur2)"/>
+
+  <g transform="translate(70,60)">
+    <rect x="0" y="0" width="500" height="280" rx="16" fill="#131316" stroke="rgba(255,255,255,0.08)"/>
+    <rect x="0" y="0" width="500" height="34" rx="16" fill="#1a1a1f"/>
+    <rect x="0" y="18" width="500" height="16" fill="#1a1a1f"/>
+    <circle cx="22" cy="17" r="5" fill="#ff5f57"/>
+    <circle cx="40" cy="17" r="5" fill="#febc2e"/>
+    <circle cx="58" cy="17" r="5" fill="#28c840"/>
+    <text x="250" y="21" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#6b6b72">dashboard.html</text>
+
+    <!-- KPI row -->
+    <g font-family="JetBrains Mono, monospace">
+      <rect x="24" y="52" width="106" height="54" rx="10" fill="#1a1a1f" stroke="rgba(255,255,255,0.06)"/>
+      <text x="34" y="72" font-size="9.5" fill="#6b6b72">OPEN INC.</text>
+      <text x="34" y="94" font-size="19" fill="#f2f2f0" font-weight="600">37</text>
+
+      <rect x="140" y="52" width="106" height="54" rx="10" fill="#1a1a1f" stroke="rgba(255,255,255,0.06)"/>
+      <text x="150" y="72" font-size="9.5" fill="#6b6b72">SLA %</text>
+      <text x="150" y="94" font-size="19" fill="#3ddc84" font-weight="600">94.2</text>
+
+      <rect x="256" y="52" width="106" height="54" rx="10" fill="#1a1a1f" stroke="rgba(255,255,255,0.06)"/>
+      <text x="266" y="72" font-size="9.5" fill="#6b6b72">MTTR</text>
+      <text x="266" y="94" font-size="19" fill="#f2f2f0" font-weight="600">2.4h</text>
+
+      <rect x="372" y="52" width="106" height="54" rx="10" fill="#1a1a1f" stroke="rgba(255,255,255,0.06)"/>
+      <text x="382" y="72" font-size="9.5" fill="#6b6b72">AT RISK</text>
+      <text x="382" y="94" font-size="19" fill="#febc2e" font-weight="600">5</text>
+    </g>
+
+    <!-- SLA trend line chart -->
+    <g transform="translate(24,124)">
+      <rect x="0" y="0" width="454" height="90" rx="10" fill="#17171b" stroke="rgba(255,255,255,0.06)"/>
+      <text x="14" y="18" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#6b6b72">SLA COMPLIANCE — 12W TREND</text>
+      <polyline points="14,64 52,58 90,66 128,50 166,54 204,40 242,46 280,34 318,38 356,28 394,32 432,24"
+        fill="none" stroke="url(#line)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="14" y1="76" x2="440" y2="76" stroke="rgba(255,255,255,0.08)"/>
+    </g>
+
+    <!-- incident rows -->
+    <g font-family="JetBrains Mono, monospace" font-size="10.5">
+      <rect x="24" y="228" width="454" height="24" rx="6" fill="#17171b"/>
+      <rect x="34" y="234" width="30" height="12" rx="6" fill="#ff5f57" opacity="0.18"/>
+      <text x="38" y="243" font-size="8.5" fill="#ff8f89">P1</text>
+      <text x="76" y="244" fill="#d6d6d6">Payment gateway timeout — breached</text>
+
+      <rect x="24" y="256" width="454" height="24" rx="6" fill="#17171b"/>
+      <rect x="34" y="262" width="30" height="12" rx="6" fill="#febc2e" opacity="0.18"/>
+      <text x="39" y="271" font-size="8.5" fill="#ffd679">P2</text>
+      <text x="76" y="272" fill="#d6d6d6">DB replication lag — at risk</text>
+    </g>
+  </g>
+
+  <rect x="0" y="396" width="640" height="4" fill="url(#accent2)"/>
+</svg>

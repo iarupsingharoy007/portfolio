@@ -521,6 +521,11 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; letter-spacing:-0
   color:var(--text);
   margin-top:4px;
 }
+.project-links{
+  display:flex; gap:18px; flex-wrap:wrap;
+  margin-top:4px;
+}
+.project-links .project-link{ margin-top:0; }
 .project-link svg{ width:14px; height:14px; transition:transform .3s var(--ease); }
 .project-card:hover .project-link svg{ transform:translate(3px,-3px); }
 

@@ -14,6 +14,7 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main-content">Skip to content</a>
 <div class="cursor-glow"></div>
 
 <!-- ================= NAV ================= -->
@@ -37,7 +38,7 @@
   </div>
 </nav>
 
-<main>
+<main id="main-content">
 
   <!-- ================= HERO ================= -->
   <section id="home" class="hero">
@@ -98,29 +99,34 @@
 
       <div class="about-grid">
         <div class="about-portrait reveal">
-          <img src="assets/images/about.jpg" alt="Portrait of Arup Singha Roy" />
+          <img src="assets/images/about.jpg" alt="Portrait of Arup Singha Roy" loading="lazy" decoding="async" />
         </div>
 
         <div class="about-columns">
           <div class="about-card reveal">
             <h4>Professional</h4>
-            <ul>
-              <li>Enterprise Application Support</li>
-              <li>Production Systems &amp; Batch Job Monitoring</li>
-              <li>Linux &amp; Shell Scripting</li>
-              <li>SQL &amp; Database Management</li>
-              <li>Python &amp; ETL Tools</li>
-              <li>Autosys · ServiceNow · ITSM</li>
-            </ul>
+            <div class="skill-grid" role="list">
+              <span class="skill-node" role="listitem">Enterprise Application Support</span>
+              <span class="skill-node" role="listitem">Production Systems</span>
+              <span class="skill-node" role="listitem">Batch Job Monitoring</span>
+              <span class="skill-node" role="listitem">Linux</span>
+              <span class="skill-node" role="listitem">Shell Scripting</span>
+              <span class="skill-node" role="listitem">SQL</span>
+              <span class="skill-node" role="listitem">Python</span>
+              <span class="skill-node" role="listitem">ETL Tools</span>
+              <span class="skill-node" role="listitem">Autosys</span>
+              <span class="skill-node" role="listitem">ServiceNow</span>
+              <span class="skill-node" role="listitem">ITSM</span>
+            </div>
           </div>
           <div class="about-card personal reveal reveal-delay-1">
             <h4>Personal</h4>
-            <ul>
-              <li>Technology</li>
-              <li>Learning</li>
-              <li>Gaming</li>
-              <li>Content Creation</li>
-            </ul>
+            <div class="skill-grid" role="list">
+              <span class="skill-node warm" role="listitem">Technology</span>
+              <span class="skill-node warm" role="listitem">Learning</span>
+              <span class="skill-node warm" role="listitem">Gaming</span>
+              <span class="skill-node warm" role="listitem">Content Creation</span>
+            </div>
           </div>
         </div>
       </div>
@@ -133,8 +139,10 @@
       <div class="eyebrow reveal">Experience</div>
       <h2 class="section-heading reveal">Where I've worked and what I've built.</h2>
 
-      <div class="timeline">
+      <div class="timeline" data-timeline>
+        <div class="timeline-progress" data-timeline-progress></div>
         <div class="timeline-item reveal">
+          <span class="timeline-dot"></span>
           <div class="timeline-date">Oct 2023 — Present</div>
           <div class="timeline-body">
             <h3>Citi</h3>
@@ -145,6 +153,7 @@
           </div>
         </div>
         <div class="timeline-item reveal reveal-delay-1">
+          <span class="timeline-dot"></span>
           <div class="timeline-date">Apr 2023 — Oct 2023</div>
           <div class="timeline-body">
             <h3>PwC</h3>
@@ -155,6 +164,7 @@
           </div>
         </div>
         <div class="timeline-item reveal reveal-delay-2">
+          <span class="timeline-dot"></span>
           <div class="timeline-date">Jul 2019 — Apr 2023</div>
           <div class="timeline-body">
             <h3>Tata Consultancy Services</h3>
@@ -182,11 +192,20 @@
 
       <div class="project-grid">
         <article class="project-card reveal">
-          <div class="project-thumb"><img src="assets/images/project-health-check-thumb.svg" alt="Health check dashboard mockup" /></div>
+          <div class="project-thumb"><img src="assets/images/project-health-check-thumb.svg" alt="Health check dashboard mockup" loading="lazy" decoding="async" /></div>
           <div class="project-body">
             <h3>Linux Server Health Check Automation</h3>
             <p>A Python tool that connects to a fleet of Linux servers over SSH, runs CPU, memory, disk, process, and service checks, and renders everything into a single-file interactive HTML dashboard.</p>
             <div class="project-tags"><span>Python</span><span>Paramiko / SSH</span><span>Automation</span><span>Jinja2</span></div>
+            <details class="project-details">
+              <summary>Key highlights</summary>
+              <ul>
+                <li>Concurrent SSH checks across the whole fleet via ThreadPoolExecutor</li>
+                <li>CPU, memory, swap, disk, mount, process &amp; service validation per server</li>
+                <li>Per-check error isolation — one failing server never blocks the rest</li>
+                <li>Single-file HTML dashboard, no server or database required</li>
+              </ul>
+            </details>
             <a href="https://github.com/iarupsingharoy007/linux-server-health-check" target="_blank" rel="noopener" class="project-link">View on GitHub
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>
             </a>
@@ -194,11 +213,19 @@
         </article>
 
         <article class="project-card reveal reveal-delay-1">
-          <div class="project-thumb"><img src="assets/images/project-itsm-insight-thumb.svg" alt="ITSM Insight operations dashboard mockup" /></div>
+          <div class="project-thumb"><img src="assets/images/project-itsm-insight-thumb.svg" alt="ITSM Insight operations dashboard mockup" loading="lazy" decoding="async" /></div>
           <div class="project-body">
             <h3>ITSM Insight</h3>
             <p>A concept enterprise operations console for IT Service Management — incident queues, SLA compliance, and MTTR trends in one view. Static front-end, built against a realistic mock dataset, deployed straight to GitHub Pages.</p>
             <div class="project-tags"><span>HTML/CSS/JS</span><span>Chart.js</span><span>ITSM</span></div>
+            <details class="project-details">
+              <summary>Key highlights</summary>
+              <ul>
+                <li>Incident queue with SLA compliance and MTTR trend visualization</li>
+                <li>Realistic mock dataset standing in for a live ITSM backend</li>
+                <li>Fully static front-end — deployed directly on GitHub Pages</li>
+              </ul>
+            </details>
             <div class="project-links">
               <a href="https://iarupsingharoy007.github.io/itsm-insight/" target="_blank" rel="noopener" class="project-link">Live Demo
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>
@@ -211,11 +238,19 @@
         </article>
 
         <article class="project-card reveal reveal-delay-2">
-          <div class="project-thumb"><img src="assets/images/project-data-reconciliation-thumb.svg" alt="Enterprise Data Reconciliation Engine mockup" /></div>
+          <div class="project-thumb"><img src="assets/images/project-data-reconciliation-thumb.svg" alt="Enterprise Data Reconciliation Engine mockup" loading="lazy" decoding="async" /></div>
           <div class="project-body">
             <h3>Enterprise Data Reconciliation Engine</h3>
             <p>A reconciliation tool that compares source and target datasets to surface mismatches, missing records, and discrepancies. Deployed as a live Streamlit app — try it instantly with bundled sample data, or upload your own source/target files.</p>
             <div class="project-tags"><span>Python</span><span>Streamlit</span><span>Data Reconciliation</span></div>
+            <details class="project-details">
+              <summary>Key highlights</summary>
+              <ul>
+                <li>Compares source vs. target datasets to flag mismatches &amp; missing records</li>
+                <li>Bundled sample data for an instant try, or upload your own files</li>
+                <li>Deployed live on Streamlit Cloud — no install required to test</li>
+              </ul>
+            </details>
             <div class="project-links">
               <a href="https://enterprise-reconciliation.streamlit.app/" target="_blank" rel="noopener" class="project-link">Live App
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg>
@@ -249,7 +284,7 @@
         </div>
 
         <div class="channel-card reveal reveal-delay-1">
-          <img class="thumb" src="assets/images/gallery-1.jpg" alt="iLAZY gaming" />
+          <img class="thumb" src="assets/images/gallery-1.jpg" alt="iLAZY gaming" loading="lazy" decoding="async" />
           <h4>iLAZY on YouTube</h4>
           <p>Occasional gameplay and gaming content, made for fun — no ranks, no stats, just genuine enjoyment.</p>
           <a href="https://youtube.com/@ilazzzy" target="_blank" rel="noopener" class="btn btn-ghost">Visit Channel</a>
@@ -264,6 +299,30 @@
       <div class="eyebrow" style="justify-content:center;">Contact</div>
       <h2 class="section-heading reveal">Let's connect.</h2>
       <p class="section-sub reveal">Reach out for opportunities, collaborations, or just to say hi.</p>
+
+      <form class="contact-form reveal" data-contact-form
+            action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+        <div class="field">
+          <input type="text" id="cf-name" name="name" placeholder=" " required autocomplete="name">
+          <label for="cf-name">Your name</label>
+          <span class="field-error" data-error-for="cf-name"></span>
+        </div>
+        <div class="field">
+          <input type="email" id="cf-email" name="email" placeholder=" " required autocomplete="email">
+          <label for="cf-email">Your email</label>
+          <span class="field-error" data-error-for="cf-email"></span>
+        </div>
+        <div class="field">
+          <textarea id="cf-message" name="message" placeholder=" " required rows="4"></textarea>
+          <label for="cf-message">Message</label>
+          <span class="field-error" data-error-for="cf-message"></span>
+        </div>
+        <button type="submit" class="btn btn-primary form-submit">
+          <span class="btn-label">Send message</span>
+          <span class="btn-spinner" aria-hidden="true"></span>
+        </button>
+        <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+      </form>
 
       <div class="contact-icons reveal">
         <a class="icon-btn" href="https://www.linkedin.com/in/arup-singha-roy-997b34169" target="_blank" rel="noopener" aria-label="LinkedIn">
@@ -295,6 +354,9 @@
   </div>
 </footer>
 
-<script src="assets/js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+<script src="assets/js/motion.js" defer></script>
 </body>
 </html>

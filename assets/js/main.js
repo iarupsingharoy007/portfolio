@@ -73,19 +73,21 @@
   );
   revealEls.forEach((el) => revealObs.observe(el));
 
-  /* ---------- Magnetic buttons ---------- */
-  const magnets = document.querySelectorAll('.btn, .icon-btn');
-  magnets.forEach((btn) => {
-    btn.addEventListener('mousemove', (e) => {
-      const rect = btn.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      btn.style.transform = `translate(${x * 0.18}px, ${y * 0.28}px)`;
+  /* ---------- Magnetic buttons (fallback when GSAP isn't available) ---------- */
+  if (!window.gsap) {
+    const magnets = document.querySelectorAll('.btn, .icon-btn');
+    magnets.forEach((btn) => {
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${x * 0.18}px, ${y * 0.28}px)`;
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = '';
+      });
     });
-    btn.addEventListener('mouseleave', () => {
-      btn.style.transform = '';
-    });
-  });
+  }
 
   /* ---------- Cursor glow ---------- */
   const glow = document.querySelector('.cursor-glow');
@@ -96,7 +98,7 @@
     });
   }
 
-  /* ---------- Hero aurora parallax ---------- */
+  /* ---------- Hero aurora parallax (mouse) ---------- */
   const blobs = document.querySelectorAll('.aurora-blob');
   window.addEventListener('mousemove', (e) => {
     const x = (e.clientX / window.innerWidth - 0.5) * 2;
@@ -106,6 +108,102 @@
       b.style.transform = `translate(${x * depth}px, ${y * depth}px)`;
     });
   });
+
+  /* ---------- Nav: shrink on scroll + hide on scroll-down / reveal on scroll-up ---------- */
+  const navEl = document.querySelector('.nav');
+  if (navEl) {
+    let lastY = window.scrollY;
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        navEl.classList.toggle('scrolled', y > 40);
+        if (y > lastY && y > 140) navEl.classList.add('nav-hidden');
+        else navEl.classList.remove('nav-hidden');
+        lastY = y;
+        ticking = false;
+      });
+    }, { passive: true });
+  }
+
+  /* ---------- Contact form ---------- */
+  const contactForm = document.querySelector('[data-contact-form]');
+  if (contactForm) {
+    const statusEl = contactForm.querySelector('[data-form-status]');
+    const submitBtn = contactForm.querySelector('.form-submit');
+
+    function setFieldError(id, message) {
+      const err = contactForm.querySelector(`[data-error-for="${id}"]`);
+      if (err) err.textContent = message || '';
+      const field = contactForm.querySelector(`#${id}`);
+      if (field) field.closest('.field')?.classList.toggle('has-error', !!message);
+    }
+
+    function validate() {
+      let ok = true;
+      const name = contactForm.querySelector('#cf-name');
+      const email = contactForm.querySelector('#cf-email');
+      const message = contactForm.querySelector('#cf-message');
+
+      if (!name.value.trim()) { setFieldError('cf-name', 'Please enter your name.'); ok = false; }
+      else setFieldError('cf-name', '');
+
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email.value.trim())) { setFieldError('cf-email', 'Please enter a valid email.'); ok = false; }
+      else setFieldError('cf-email', '');
+
+      if (!message.value.trim()) { setFieldError('cf-message', 'Please add a short message.'); ok = false; }
+      else setFieldError('cf-message', '');
+
+      return ok;
+    }
+
+    ['cf-name', 'cf-email', 'cf-message'].forEach((id) => {
+      const field = contactForm.querySelector(`#${id}`);
+      if (field) field.addEventListener('blur', validate);
+    });
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!validate()) return;
+
+      const endpoint = contactForm.getAttribute('action') || '';
+      if (!endpoint || endpoint.includes('YOUR_FORM_ID')) {
+        statusEl.textContent = 'Form isn\u2019t connected yet \u2014 set up a Formspree endpoint (or similar) and update the form\u2019s action URL.';
+        statusEl.classList.add('is-error');
+        return;
+      }
+
+      contactForm.classList.add('submitting');
+      submitBtn.disabled = true;
+      statusEl.classList.remove('is-error', 'is-success');
+      statusEl.textContent = '';
+
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { Accept: 'application/json' },
+        });
+        if (res.ok) {
+          statusEl.textContent = 'Thanks \u2014 your message is on its way. I\u2019ll get back to you soon.';
+          statusEl.classList.add('is-success');
+          contactForm.reset();
+          contactForm.classList.add('submitted');
+        } else {
+          throw new Error('Request failed');
+        }
+      } catch (err) {
+        statusEl.textContent = 'Something went wrong sending that \u2014 please try the email link below instead.';
+        statusEl.classList.add('is-error');
+      } finally {
+        contactForm.classList.remove('submitting');
+        submitBtn.disabled = false;
+      }
+    });
+  }
 
   /* ---------- Current year ---------- */
   const yearEl = document.querySelector('[data-year]');

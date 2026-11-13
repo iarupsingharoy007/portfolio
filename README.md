@@ -1,4 +1,4 @@
-# Arup Singha Roy — Personal Site
+# Arup Singha Roy - Personal Site
 
 A  single-page personal brand site it runs as-is on GitHub Pages.
 

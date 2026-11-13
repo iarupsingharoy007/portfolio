@@ -1,6 +1,6 @@
 # Arup Singha Roy — Personal Site
 
-A premium, single-page personal brand site: engineer & automation enthusiast by day, gamer (**iLAZY**) by night. Built with plain HTML/CSS/JS — no build step, no framework — so it runs as-is on GitHub Pages.
+A  single-page personal brand site it runs as-is on GitHub Pages.
 
 ## Structure
 

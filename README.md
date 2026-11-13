@@ -8,10 +8,10 @@ A  single-page personal brand site it runs as-is on GitHub Pages.
 portfolio/
   index.html              → the entire site (Home, About, Experience, Projects, Beyond Work, Contact)
   assets/
-    css/style.css         → design tokens + all styling
-    js/main.js             → theme toggle, scroll-spy, reveal animations, magnetic buttons
-    images/                → hero/about photos, gaming banner, gallery
-    resume.pdf             → ⬅ add your resume here (linked from the hero "Resume" button)
+    css/style.css         
+    js/main.js             
+    images/                
+    resume.pdf             
 ```
 
 

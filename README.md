@@ -14,30 +14,7 @@ portfolio/
     resume.pdf             → ⬅ add your resume here (linked from the hero "Resume" button)
 ```
 
-## Before you publish
 
-1. **Resume** — drop a `resume.pdf` into `assets/`. The hero "Resume" button already points to `assets/resume.pdf`.
-2. **Email** — ✅ already set to `arupsinghroy@gmail.com`.
-3. **GitHub link** — ✅ already points to `https://github.com/iarupsingharoy007`.
-4. **Experience** — the two timeline cards in the Experience section are placeholders. Copy the `.timeline-item` block to add more roles.
-5. **Projects** — the three project cards are placeholders (image/title/description/tags/link). Copy `.project-card` to add more, and swap in real screenshots.
-6. **Beyond Work banner** — `assets/images/gaming-banner.png` is used as the background of the Beyond Work section. Swap it for an updated banner any time — no code changes needed.
-
-## Running locally
-
-No build tools needed. Just open `index.html` in a browser, or serve it locally:
-
-```bash
-python3 -m http.server 8000
-```
-
-Then visit `http://localhost:8000`.
-
-## Deploying to GitHub Pages
-
-1. Push this folder's contents to the root of a repo (e.g. `arupsingharoy.github.io`, or any repo + enable Pages on the `main` branch / `root` folder).
-2. In the repo's **Settings → Pages**, set the source to that branch and `/ (root)`.
-3. Your site will be live at `https://<username>.github.io/` (or the repo's Pages URL).
 
 ## Extending later (Phase 2)
 
